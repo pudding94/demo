@@ -1,17 +1,22 @@
 package com.demo.po;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="t_user")
 public class User {
-	@Id
-	private String id;
+	private Integer id;
 	private String name;
-	public String getId() {
+	@Id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
