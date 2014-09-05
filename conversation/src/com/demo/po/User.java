@@ -1,4 +1,8 @@
 package com.demo.po;
+
+import javax.persistence.Entity;
+
+@Entity
 public class User {
 	private String id;
 	private String name;
