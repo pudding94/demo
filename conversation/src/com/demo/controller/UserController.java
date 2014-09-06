@@ -10,6 +10,7 @@ import com.demo.po.User;
 import com.demo.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	private UserService userService;
 	
@@ -27,13 +28,11 @@ public class UserController {
 //		  System.out.println("sb");
 //	      return "successed";
 //	}
-	@RequestMapping("/user_save")
-	public String save(Integer id, String name) {
+	@RequestMapping(params="method=save") 
+	public String save(String name) {
 		// model.addAttribute("message", "saved!");
-		System.out.println(id);
 		System.out.println(name);
 		User user = new User();
-		user.setId(id);
 		user.setName(name);
 		this.userService.save(user);
 		return "successed";
