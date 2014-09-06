@@ -28,7 +28,8 @@ public class UserController {
 //		  System.out.println("sb");
 //	      return "successed";
 //	}
-	@RequestMapping(params="method=save") 
+//	@RequestMapping(params="method=save") 
+	@RequestMapping(value="/save") 
 	public String save(String name) {
 		
 		System.out.println(name);
