@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.demo.po.User;
 import com.demo.service.UserService;
@@ -37,5 +38,13 @@ public class UserController {
 		user.setName(name);
 		this.userService.save(user);
 		return "successed";
+	}
+	@RequestMapping(params="method=load") 
+	@ResponseBody  
+	public User load(int id) {
+		User user=new User(){};
+		user.setId(id);
+		user.setName("s");
+		return user;
 	}
 }

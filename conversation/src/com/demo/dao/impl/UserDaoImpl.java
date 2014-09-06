@@ -36,7 +36,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 //		}
 		System.out.println("id="+user.getId());
 		this.getHibernateTemplate().save(user);
-		
 		System.out.println("dao saved");
 		return null;
 	}
