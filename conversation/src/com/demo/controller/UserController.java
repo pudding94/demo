@@ -30,6 +30,7 @@ public class UserController {
 //	}
 	@RequestMapping(params="method=save") 
 	public String save(String name) {
+		
 		System.out.println(name);
 		User user = new User();
 		user.setName(name);
