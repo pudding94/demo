@@ -1,5 +1,6 @@
 package com.demo.dao.impl;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 		super.setSessionFactory(sessionFactory);
 	}
 	@Override
-	public String save(User user) {
+	public int addUser(User user) {
 		// TODO Auto-generated method stub
 		
 //		List lists=this.getHibernateTemplate().execute(new HibernateCallback() {
@@ -34,10 +35,15 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 //		for(Object str:lists){
 //			System.out.println(lists);
 //		}
-		System.out.println("id="+user.getId());
-		this.getHibernateTemplate().save(user);
+		System.out.println("name="+user.getName());
+		Integer id = (Integer) this.getHibernateTemplate().save(user);
 		System.out.println("dao saved");
-		return null;
+		return id;
+	}
+	@Override
+	public User getUser(int id) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(User.class, id);
 	}
 
 }

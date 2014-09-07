@@ -3,6 +3,8 @@ package com.demo.dao;
 import com.demo.po.User;
 
 public interface UserDao {
-	public String save(User user);
+	public int addUser(User user);
+
+	public User getUser(int id);
 
 }

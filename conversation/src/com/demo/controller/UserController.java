@@ -3,7 +3,7 @@ package com.demo.controller;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,28 +23,20 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	//	@RequestMapping("/user_save")
-//	public  String save(Model model){
-//		  model.addAttribute("message", "saved!");
-//		  System.out.println("sb");
-//	      return "successed";
-//	}
-//	@RequestMapping(params="method=save") 
-	@RequestMapping(value="/save") 
-	public String save(String name) {
-		
-		System.out.println(name);
-		User user = new User();
-		user.setName(name);
-		this.userService.save(user);
-		return "successed";
+	@RequestMapping()
+	public  String redirectToUser(){
+		  System.out.println("redirect to user.jsp");
+	      return "view/user.jsp";//forward
+//		  return "redirect:http://www.baidu.com"; 
 	}
-	@RequestMapping(params="method=load") 
+	@RequestMapping(value="/addUser") 
+	@ResponseBody
+	public int addUser(@RequestBody User user) {
+		return this.userService.addUser(user);
+	}
+	@RequestMapping(value="/getUser") 
 	@ResponseBody  
-	public User load(int id) {
-		User user=new User(){};
-		user.setId(id);
-		user.setName("s");
-		return user;
+	public User getUser(int id) {
+		return this.userService.getUser(id);
 	}
 }

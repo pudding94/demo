@@ -17,8 +17,16 @@ public class UserServiceImpl implements UserService {
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
+
 	@Override
-	public String save(User user) {
-		return this.userDao.save(user);
+	public int addUser(User user) {
+		// TODO Auto-generated method stub
+		return this.userDao.addUser(user);
 	}
+	@Override
+	public User getUser(int id) {
+		// TODO Auto-generated method stub
+		return this.userDao.getUser(id);
+	}
+	
 }
