@@ -1,7 +1,8 @@
 $(document).ready(function() {
 	/**
-	 * getUser
 	 * 传普通参数
+	 * calss : User{int id,String name}
+	 * method : public int addUser(User user)
 	 */
 	$("#userLoad").bind("click",function(){
 		var params = {
@@ -18,8 +19,9 @@ $(document).ready(function() {
 		});
 	})
 	/**
-	 * addUser
 	 * 传json
+	 * class :  User{int id,String name}
+	 * method : public User getUser(int id)
 	 */
 	$("#userSave").bind("click",function(){
 		var params = {
