@@ -6,8 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Entity
 @Table(name="t_user")
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class User {
 	private int id;
 	private String name;

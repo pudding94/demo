@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	/**
-	 * user load
+	 * getUser
 	 * 传普通参数
 	 */
 	$("#userLoad").bind("click",function(){
@@ -18,7 +18,7 @@ $(document).ready(function() {
 		});
 	})
 	/**
-	 * user save
+	 * addUser
 	 * 传json
 	 */
 	$("#userSave").bind("click",function(){
