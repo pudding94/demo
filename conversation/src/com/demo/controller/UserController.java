@@ -37,6 +37,9 @@ public class UserController {
 	@RequestMapping(value="/getUser") 
 	@ResponseBody  
 	public User getUser(int id) {
-		return this.userService.getUser(id);
+		User user=this.userService.getUser(id);
+		if(user == null)
+			return new User();
+		return user;
 	}
 }
