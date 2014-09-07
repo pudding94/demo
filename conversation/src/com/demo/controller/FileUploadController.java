@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -27,6 +28,7 @@ public class FileUploadController implements ServletContextAware {
 	
 	private FileUploadService fuleUploadService;
 	@RequestMapping(value="/uploadFile", method = RequestMethod.POST)
+	@ResponseBody
 	public String handleUploadFile(@RequestParam("file") CommonsMultipartFile file) {
 		System.out.println("handleUploadFile");
 		if (!file.isEmpty()) {
@@ -42,9 +44,9 @@ public class FileUploadController implements ServletContextAware {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return "redirect:upload_success.jsp";
+			return "upload file successfully";
 		} else {
-			return "redirect:upload_error.jsp";
+			return "upload file error";
 		}
 	}
 }

@@ -12,13 +12,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 	<script type="text/javascript" src="lib/jquery/jquery-1.11.1.min.js"></script> -->
 	<script type="text/javascript" src="lib/jquery/jquery-1.11.1.js"></script>
 <!-- 	<link rel="stylesheet" type="text/css" href="css/user.css" /> -->
-<!-- 	<script type="text/javascript" src="js/fileupload.js"></script> -->
+	<script type="text/javascript" src="lib/jquery/ajaxfileupload.js"></script>
+		<script type="text/javascript" src="js/fileupload.js"></script>
 <title>fileupload</title>
 </head>
 <body>
 		<form action="upload/uploadFile"  method="post" enctype="multipart/form-data">
-			<input type="file" name="file" /></br>
-			<input type="submit" />
+			<input id="file" type="file" name="file" /></br>
+			Form submit:<input type="submit" /></br>
+			Ajax submit:<input id="uploadFile" type="button" value="submit"></br>
 		</form>
 </body>
 </html>
