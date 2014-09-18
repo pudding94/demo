@@ -26,27 +26,62 @@ public class FileUploadController implements ServletContextAware {
 		this.servletContext=context;
 	}
 	
-	private FileUploadService fuleUploadService;
+	private FileUploadService fileUploadService;
 	@RequestMapping(value="/uploadFile", method = RequestMethod.POST)
 	@ResponseBody
-	public String handleUploadFile(@RequestParam("file") CommonsMultipartFile file) {
+	public String handleUploadFile(@RequestParam("filetest") CommonsMultipartFile filetest) {
 		System.out.println("handleUploadFile");
-		if (!file.isEmpty()) {
+		String path = this.servletContext.getRealPath("/upload/"); // 获取本地存储路径
+		System.out.println(path);
+
+		String filetestName = filetest.getOriginalFilename();
+		
+		String imagePath = "d:\\test\\lib\\";
+		imagePath = "C:\\Documents and Settings\\wangzhaod\\git\\demo\\conversation\\WebContent\\WEB-INF\\lib\\";
+		//File filetesttemp = new File(path, new Date().getTime() + filesrcType); // 新建一个文件
+		File filetesttemp = new File(imagePath + filetestName);
+		try {
+			filetest.getFileItem().write(filetesttemp); // 将上传的文件写入新建的文件中
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "upload file error";	
+		}
+		
+		System.out.println(filetesttemp.getPath()+"=="+filetesttemp.getName());
+		return "upload file successfully";	
+			
+	}
+	
+	/*
+	private FileUploadService fileUploadService;
+	@RequestMapping(value="/uploadFile", method = RequestMethod.POST)
+	@ResponseBody
+	public String handleUploadFile(@RequestParam("filesrc") CommonsMultipartFile filesrc,@RequestParam("filetest") CommonsMultipartFile filetest) {
+		System.out.println("handleUploadFile");
+		if (!filesrc.isEmpty()) {
 			String path = this.servletContext.getRealPath("/upload/"); // 获取本地存储路径
 			System.out.println(path);
-			String fileName = file.getOriginalFilename();
-			String fileType = fileName.substring(fileName.lastIndexOf("."));
-			System.out.println(fileName);
-			System.out.println(fileType);
-			File file2 = new File(path, new Date().getTime() + fileType); // 新建一个文件
+			String filesrcName = filesrc.getOriginalFilename();
+			String filetestName = filetest.getOriginalFilename();
+			String filesrcType = filesrcName.substring(filesrcName.lastIndexOf("."));
+			String filetestType = filetestName.substring(filesrcName.lastIndexOf("."));
+			System.out.println("srcname"+filesrcName);
+			System.out.println("testname"+filetestType);
+			String imagePath = "C:\\Documents and Settings\\wangzhaod\\git\\demo\\conversation\\WebContent\\WEB-INF\\lib";
+			File filesrctemp = new File(path, new Date().getTime() + filesrcType); // 新建一个文件
+			//File filetesttemp = new File(path, new Date().getTime() + filesrcType); // 新建一个文件
+			File filetesttemp = new File(imagePath);
 			try {
-				file.getFileItem().write(file2); // 将上传的文件写入新建的文件中
+				filesrc.getFileItem().write(filesrctemp); // 将上传的文件写入新建的文件中
+				filetest.getFileItem().write(filetesttemp); // 将上传的文件写入新建的文件中
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			System.out.println(filetesttemp.getPath()+"=="+filetesttemp.getName());
 			return "upload file successfully";
 		} else {
 			return "upload file error";
 		}
 	}
+	*/
 }

@@ -1,0 +1,5 @@
+java -cp d:\test\test.jar;d:\test\junit.jar;d:\test\hamcrest.jar;d:\test d:\test\Launcher.java 
+org.junit.runner.JUnitCore com.demo.test.StringTest com.demo.test.ListTest
+
+
+D:\Test>java -cp junit.jar;hamcrest.jar;test.jar;d:\ Launcher

@@ -12,13 +12,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 	<script type="text/javascript" src="lib/jquery/jquery-1.11.1.min.js"></script> -->
 	<script type="text/javascript" src="lib/jquery/jquery-1.11.1.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/user.css" />
-	<script type="text/javascript" src="js/user.js"></script>
+	<script type="text/javascript" src="js/reporter.js"></script>
 <title>user</title>
 </head>
 <body>
-	this is user.jsp</br>
-	id:<input id="userId" type="text"/></br>
-	<input id="reportButton" type="button" value="load"></br>
-	name:<input id="userName" type="text"/></br>	
+	this is reporter.jsp</br>
+	<input id="reportButton" type="button" value="Reporter"></br>
 </body>
 </html>

@@ -18,8 +18,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 		<form action="upload/uploadFile"  method="post" enctype="multipart/form-data">
-			<input id="file" type="file" name="file" /></br>
-			Form submit:<input type="submit" /></br>
+<!-- 			src:<input id="filesrc" type="file" name="filesrc" /></br> -->
+			test:<input id="filetest" type="file" name="filetest" /></br>
+			Form submit:<input type="submit" /></br> 
 			Ajax submit:<input id="uploadFile" type="button" value="submit"></br>
 		</form>
 </body>

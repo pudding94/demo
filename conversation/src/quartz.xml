@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+    
+    <bean id="hello" class="com.demo.webservices.HelloServiceImpl" />
+    <bean id="fileUpload" class="com.demo.webservices.FileUploadServiceImpl" />
+    				
+    
+    
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >  
+    	<property name="defaultEncoding" value="gbk"/> <!-- 默认编码 (ISO-8859-1) -->  
+    	<property name="maxInMemorySize" value="10240"/> 
+    	<property name="uploadTempDir" value="/temp/"/>
+    	<property name="maxUploadSize" value="-1"/> 
+	</bean>
+	
+   	<!-- 		
+    <jaxws:endpoint id="helloService" 
+    				implementor="com.demo.webservoices.FileUploadServiceImpl" 
+    				address="/helloService" />
+     -->	
+
+    				
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

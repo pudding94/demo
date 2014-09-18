@@ -9,7 +9,8 @@ $(document).ready(function() {
             url:'upload/uploadFile',
             secureuri:false,
             async:true,
-            fileElementId:"file",
+ //           fileElementId:"filesrc",
+            fileElementId:"filetest",
             dataType: 'multipart/form-data',  
            // dataType: 'json',  
             success: function (data, status){
